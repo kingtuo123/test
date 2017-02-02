@@ -1,0 +1,11 @@
+[Unit]  
+Description=fan_control  
+After=lm_sensors.service  
+Requires=lm_sensors.service  
+[Service]  
+Type=idle  
+ExecStart=/bin/nohup /usr/bin/fan_control   
+ExecStop=/bin/pkill fan_control 
+RemainAfterExit=yes  
+[Install]  
+WantedBy=multi-user.target
